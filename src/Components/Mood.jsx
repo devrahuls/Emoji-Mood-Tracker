@@ -1,8 +1,15 @@
-import React from 'react';
+import React from 'react'
 
+const Mood = ({ setMood, mood, onMoodClick }) => {
+    let happyCount = "0";
 
-
-const Mood = () => {
+    let angryEmoji = "😡";
+    let sadEmoji = "😢";
+    let dissapointEmoji = "😞";
+    let neutralEmoji = "😐";
+    let preservingEmoji = "😣";
+    let happyEmoji = "😊";
+    let laughEmoji = "😆";
 
     return (
         <div className="flex justify-center items-center h-screen">
@@ -10,40 +17,47 @@ const Mood = () => {
                 <div className="flex justify-between mb-4">
                     <h2 className="text-xl font-bold">Mood Tracker</h2>
                     <button className="text-gray-500 hover:text-gray-700"
+                    onClick = { () => setMood(!mood)}
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                d="M10 1a9 9 0 100 18 9 9 0 000-18zm4.95 11.364l-1.414 1.414L10 11.414l-3.536 3.536-1.414-1.414L8.586 10 5.05 6.464l1.414-1.414L10 8.586l3.536-3.536 1.414 1.414L11.414 10l3.536 3.536z"
-                            />
-                        </svg>
+                       X
                     </button>
                 </div>
                 <div className="flex justify-between">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Button 1
+                    <button 
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={ () => onMoodClick(laughEmoji)}
+                    >
+                        {laughEmoji}
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Button 2
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={ () => onMoodClick(happyEmoji)}
+                    >
+                        {happyEmoji}
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Button 3
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={ () => onMoodClick(preservingEmoji)}
+                    >
+                    {preservingEmoji}
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Button 4
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={ () => onMoodClick(neutralEmoji)}
+                    >
+                    {neutralEmoji}
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Button 5
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={ () => onMoodClick(dissapointEmoji)}
+                    >
+                    {dissapointEmoji}
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Button 6
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={ () => onMoodClick(sadEmoji)}
+                    >
+                    {sadEmoji}
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Button 7
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={ () => onMoodClick(angryEmoji)}
+                    >
+                    {angryEmoji}
                     </button>
                 </div>
             </div>
@@ -52,3 +66,4 @@ const Mood = () => {
 };
 
 export default Mood;
+

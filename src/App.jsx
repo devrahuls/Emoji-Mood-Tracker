@@ -5,9 +5,9 @@ function App() {
   return (
     <>
       <h1 className='text-3xl'>hello</h1>
-      <Cell mood = "H"/>
-      <Cell mood = "S"/>
-      <Cell mood = "D"/>                 
+      <Cell/>
+      <Cell/>
+      <Cell/>
     </>
   )
 }
