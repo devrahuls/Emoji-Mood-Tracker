@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Mood = ({ setMood, mood, onMoodClick }) => {
-    let happyCount = "0";
 
     let angryEmoji = "😡";
     let sadEmoji = "😢";
