@@ -9,21 +9,15 @@ function App() {
   const [moods, setMoods] = React.useState([]);
   //This holds every mood as 0, and then updates the count as the mood is clicked.
   const [moodCounts, setMoodCounts] = React.useState({
-    '😡': 0,
-    '😢': 0,
-    '😞': 0,
-    '😐': 0,
-    '😣': 0,
-    '😊': 0,
-    '😆': 0,
+    '😡': 0, '😢': 0, '😞': 0, '😐': 0, '😣': 0, '😊': 0, '😆': 0,
   });
 
   // This function is called when a mood is clicked. It updates the moods array and the moodCounts object.
-  const addMood = (mood) => {
+  const addMood = (mood, change) => {
     setMoods([...moods, mood]);
     setMoodCounts((prevCounts) => ({
       ...prevCounts,
-      [mood]: prevCounts[mood] + 1,
+      [mood]: prevCounts[mood] + change,
     }));
   };
 

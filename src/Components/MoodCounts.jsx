@@ -1,4 +1,3 @@
-// MoodCounts.jsx
 import React from 'react';
 
 const MoodCounts = ({ moodCounts }) => {
