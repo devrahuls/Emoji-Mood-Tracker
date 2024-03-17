@@ -11,12 +11,12 @@ function Cell({onMoodCountChange}) {
     // This function is called when a mood is clicked. It sets the button content and updates the mood count.
     const handleMoodClick = (content) => {
         setButtonContent(content);
-        setActive(!active); // This closes the Mood tab when a mood is clicked.
+        setActive(!active); // This closes the Mood tab when a mood gets clicked.
         if (prevMood) {
-            onMoodCountChange(prevMood, -1); // Reduce the count of the previous mood
+            onMoodCountChange(prevMood, -1); // Reduce the count by 1 of the previous mood
           }
       
-          onMoodCountChange(content, 1); // Increase the count of the selected mood
+          onMoodCountChange(content, 1); // Increase the count by 1 of the selected mood
           setPrevMood(content); // Update the previous mood
     }
 

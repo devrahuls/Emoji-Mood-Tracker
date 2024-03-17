@@ -22,16 +22,15 @@ const Mood = ({ setMood, mood, onMoodClick }) => {
                     </button>
                 </div>
                 <div className="flex justify-between">
-                    <button 
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    onClick={ () => onMoodClick(laughEmoji)}
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={ () => onMoodClick(angryEmoji)}
                     >
-                        {laughEmoji}
+                    {angryEmoji}
                     </button>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    onClick={ () => onMoodClick(happyEmoji)}
+                    onClick={ () => onMoodClick(sadEmoji)}
                     >
-                        {happyEmoji}
+                    {sadEmoji}
                     </button>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     onClick={ () => onMoodClick(preservingEmoji)}
@@ -49,14 +48,15 @@ const Mood = ({ setMood, mood, onMoodClick }) => {
                     {dissapointEmoji}
                     </button>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    onClick={ () => onMoodClick(sadEmoji)}
+                    onClick={ () => onMoodClick(happyEmoji)}
                     >
-                    {sadEmoji}
+                        {happyEmoji}
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    onClick={ () => onMoodClick(angryEmoji)}
+                    <button 
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={ () => onMoodClick(laughEmoji)}
                     >
-                    {angryEmoji}
+                        {laughEmoji}
                     </button>
                 </div>
             </div>

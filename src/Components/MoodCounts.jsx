@@ -1,6 +1,9 @@
 import React from 'react';
 
 const MoodCounts = ({ moodCounts }) => {
+
+
+
   return (
     <div>
       <h2>Mood Counts</h2>
