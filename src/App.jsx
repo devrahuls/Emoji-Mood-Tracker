@@ -63,6 +63,17 @@ function App() {
   if( ( i * (-4)) + (5 * x) < moodAvg && moodAvg <= (i* (-4)) + (6 * x)){avgEmoji = '😊';}
   if( ( i * (-4)) + (6 * x) < moodAvg && moodAvg <= (i* (-4)) + (7 * x)){avgEmoji = '😆';}
 
+  //reset function to reset the moodCounts, moods array, remove emoji from each cells, and the average mood and save the current avgEmoji in an array.
+
+  function reset(){
+    setMoodCounts({
+      '😡': 0, '😢': 0, '😞': 0, '😐': 0, '😣': 0, '😊': 0, '😆': 0,
+    });
+    setMoods([]);
+    avgEmoji = '';
+    setButtonContent('');
+  }
+
   return (
     <>
       <h1 className='text-3xl'>hello</h1>
@@ -79,6 +90,7 @@ function App() {
 
       <MoodCounts moodCounts={moodCounts}/>
       <h2>Average Mood: {avgEmoji}</h2>
+      <button onClick={reset}>Go to the new week</button>
     </>
   )
 }
