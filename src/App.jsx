@@ -11,6 +11,9 @@ function App() {
   const [moodCounts, setMoodCounts] = React.useState({
     '😡': 0, '😢': 0, '😞': 0, '😐': 0, '😣': 0, '😊': 0, '😆': 0,
   });
+  const [clearCellContent, setClearCellContent] = React.useState(false); //This is used to clear the emoji inside the cells.
+  const [weeklyAverageMoods, setWeeklyAverageMoods] = React.useState([]); //This holds the average mood of each week.
+
 
   // This function is called when a mood is clicked from Mood Tab. It updates the moods array and the moodCounts object.
   //Works when a user wants to add a mood or to swap a new mood from the previous one.
@@ -63,34 +66,51 @@ function App() {
   if( ( i * (-4)) + (5 * x) < moodAvg && moodAvg <= (i* (-4)) + (6 * x)){avgEmoji = '😊';}
   if( ( i * (-4)) + (6 * x) < moodAvg && moodAvg <= (i* (-4)) + (7 * x)){avgEmoji = '😆';}
 
+  
   //reset function to reset the moodCounts, moods array, remove emoji from each cells, and the average mood and save the current avgEmoji in an array.
-
-  function reset(){
+  function handleReset(){
     setMoodCounts({
       '😡': 0, '😢': 0, '😞': 0, '😐': 0, '😣': 0, '😊': 0, '😆': 0,
     });
     setMoods([]);
+    setClearCellContent(true); 
+    setWeeklyAverageMoods((prevMoods) => [...prevMoods, avgEmoji]); //Save the current avgEmoji in an array.
+    setWeekCount((prevCount) => prevCount + 1); //Increase the week count by 1.
     avgEmoji = '';
-    setButtonContent('');
   }
+
+  //To keep track of the week count. Also, to keep track of the average mood of each week.
+  React.useEffect(() => {
+    if (clearCellContent) {
+      setTimeout(() => {
+        setClearCellContent(false);
+      }, 100);
+    }
+  }, [clearCellContent]);
 
   return (
     <>
       <h1 className='text-3xl'>hello</h1>
-      <Cell onMoodCountChange={addMood} />
-      <Cell onMoodCountChange={addMood} />
-      <Cell onMoodCountChange={addMood} />
-      <Cell onMoodCountChange={addMood} />
-      <Cell onMoodCountChange={addMood} />
-      <Cell onMoodCountChange={addMood} />
-      <Cell onMoodCountChange={addMood} />
-      <Cell onMoodCountChange={addMood} />
-      <Cell onMoodCountChange={addMood} />
-      <Cell onMoodCountChange={addMood} />
+      <Cell onMoodCountChange={addMood}  clearContent={clearCellContent} />
+      <Cell onMoodCountChange={addMood}  clearContent={clearCellContent} />
+      <Cell onMoodCountChange={addMood}  clearContent={clearCellContent} />
+      <Cell onMoodCountChange={addMood}  clearContent={clearCellContent} />
+      <Cell onMoodCountChange={addMood}  clearContent={clearCellContent} />
+      <Cell onMoodCountChange={addMood}  clearContent={clearCellContent} />
+
+
 
       <MoodCounts moodCounts={moodCounts}/>
       <h2>Average Mood: {avgEmoji}</h2>
-      <button onClick={reset}>Go to the new week</button>
+      {weeklyAverageMoods.length > 0 && (
+        <div>
+          <h3>Weekly Average Moods</h3>
+          {weeklyAverageMoods.map((mood, index) => (
+            <p key={index}>Week {index}: {mood}</p>
+          ))}
+        </div>
+      )}
+      <button onClick={handleReset}>Go to the new week</button>
     </>
   )
 }
