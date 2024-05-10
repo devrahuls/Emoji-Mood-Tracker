@@ -37,3 +37,31 @@ export const prevWeekMoods = async (prevWeekMoodData) => {
     }
     return response;
 }
+
+export const updateDayMood = async (data) => {
+    let response = null;
+    console.log(data);
+    try {
+        response = await instance.post('/updateDailyMood', {data}, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('Emoji_Mood_Tracker_Token')}`
+            }
+        }); // prevWeekMoods route that we are hitting on the server by sending the prevWeekMoodData that the user sends to the server.
+    } catch (err) {
+        response = err;
+    }
+    return response;
+}
+export const updateWeeklyAverageMoods = async (data) => {
+    let response = null;
+    try {
+        response = await instance.post('/updateWeeklyAvgMood', data, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('Emoji_Mood_Tracker_Token')}`
+            }
+        });
+    } catch (err) {
+        response = err;
+    }
+    return response;
+}

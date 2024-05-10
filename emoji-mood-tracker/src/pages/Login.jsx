@@ -23,6 +23,14 @@ const Login = () => {
         e.preventDefault();
         const response = await login({email, password});
         console.log(response);
+        if(response.data.errorMessage == "User not found"){
+          navigate("/login");
+        }else{
+          // console.log(response.data);
+          localStorage.setItem("Emoji_Mood_Tracker_Token", response.data.token)
+          localStorage.setItem("Emoji_Mood_Tracker_Username", response.data.username);
+          navigate("/app")
+        }
       };
   return (
     <div>

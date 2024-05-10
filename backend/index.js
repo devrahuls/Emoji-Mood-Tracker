@@ -1,9 +1,12 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config(); //it will load the environment variables from the .env file
 import mongoose from "mongoose";
 import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
-import Router from "./routes/auth.js";
+import Router1 from "./routes/auth.js";
+import Router2 from "./routes/user.js"
 
 const app = express();
 app.use(helmet()); //it will secure the app by setting various HTTP headers
@@ -14,7 +17,9 @@ app.use(express.urlencoded({ extended: true })); //it will parse the request in 
 
 
 //Setting up the routers
-app.use("/api", Router); //it will use the auth.js file from the routes folder
+app.use("/api", Router1); //it will use the auth.js file from the routes folder
+app.use("/api", Router2); //it will use the auth.js file from the routes folder
+
 
 
 

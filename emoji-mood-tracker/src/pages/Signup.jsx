@@ -26,6 +26,14 @@ const Signup = () => {
         e.preventDefault();
         let response = await signUp({name, email, password});
         console.log(response);
+        if(response.data.errorMessage == "User Has Not Been Created."){
+          navigate("/signup");
+        }else{
+          // console.log(response.data);
+          localStorage.setItem("Emoji_Mood_Tracker_Token", response.data.token)
+          localStorage.setItem("Emoji_Mood_Tracker_Username", response.data.username);
+          navigate("/app")
+        }
       };
   return (
     <div>
